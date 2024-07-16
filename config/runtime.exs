@@ -37,7 +37,7 @@ if config_env() == :prod do
    # url: database_url,
     username: "postgres",
     password: "df2zqXAIyJj4qP4",
-    hostname: "timedb-nerves-scottv2.flycast",
+    hostname: "timedb-nerves-scottv2.internal",
     port: 5432,
     database: "weather_tracker",
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
