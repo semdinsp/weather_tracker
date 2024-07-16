@@ -36,7 +36,7 @@ if config_env() == :prod do
     #ssl: true,
    # url: database_url,
     username: "postgres",
-    password: "76XzpbNP2TxDh6f",
+    password: "df2zqXAIyJj4qP4",
     hostname: "timedb-nerves-scottv2.flycast",
     port: 5432,
     database: "weather_tracker",
