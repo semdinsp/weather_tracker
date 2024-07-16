@@ -22,7 +22,7 @@ end
 
 #postgres://postgres:76XzpbNP2TxDh6f@scott-weather.flycast:5432
 if config_env() == :prod do
-  database_url = postgres://postgres:df2zqXAIyJj4qP4@timedb-nerves-scottv2.flycast:5432
+  database_url = "postgres:df2zqXAIyJj4qP4@timedb-nerves-scottv2.flycast:5432"
   #  System.get_env("DATABASE_URL") ||
   #    raise """
   #    environment variable DATABASE_URL is missing.
