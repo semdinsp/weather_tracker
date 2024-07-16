@@ -22,12 +22,12 @@ end
 
 #postgres://postgres:76XzpbNP2TxDh6f@scott-weather.flycast:5432
 if config_env() == :prod do
-  database_url =
-    System.get_env("DATABASE_URL") ||
-      raise """
-      environment variable DATABASE_URL is missing.
-      For example: ecto://USER:PASS@HOST/DATABASE
-      """
+  database_url = postgres://postgres:df2zqXAIyJj4qP4@timedb-nerves-scottv2.flycast:5432
+  #  System.get_env("DATABASE_URL") ||
+  #    raise """
+  #    environment variable DATABASE_URL is missing.
+  #    For example: ecto://USER:PASS@HOST/DATABASE
+  #    """
 
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
 
