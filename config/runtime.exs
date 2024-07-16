@@ -34,11 +34,11 @@ if config_env() == :prod do
 
   config :weather_tracker, WeatherTracker.Repo,
     #ssl: true,
-    url: database_url,
+   # url: database_url,
     username: "postgres",
     password: "76XzpbNP2TxDh6f",
-    # hostname: "scott-weather.flycast",
-    #port: 5432,
+    hostname: "timedb-nerves-scottv2.flycast",
+    port: 5432,
     database: "weather_tracker",
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
     socket_options: maybe_ipv6
