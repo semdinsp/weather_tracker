@@ -33,7 +33,7 @@ if config_env() == :prod do
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
 
   config :weather_tracker, WeatherTracker.Repo,
-    ssl: true,
+    #ssl: true,
     url: database_url,
     username: "postgres",
     password: "76XzpbNP2TxDh6f",
