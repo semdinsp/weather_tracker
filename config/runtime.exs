@@ -21,10 +21,10 @@ if System.get_env("PHX_SERVER") do
 end
 
 #postgres://postgres:76XzpbNP2TxDh6f@scott-weather.flycast:5432
-#database_url = "postgres://postgres:df2zqXAIyJj4qP4@timedb-nerves-scottv2.flycast:5432/weather_tracker?sslmode=disable"
+#database_url = "postgres://postgres:df2zqXAIyJj4qP4@timedb-nerves-scottv2.flycast:5432/weather_tracker"
 
 if config_env() == :prod do
-  database_url =  System.get_env("DATABASE_URL") ||
+   database_url =  System.get_env("DATABASE_URL") ||
    raise """
     environment variable DATABASE_URL is missing.
     For example: ecto://USER:PASS@HOST/DATABASE
@@ -33,8 +33,13 @@ if config_env() == :prod do
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
 
   config :weather_tracker, WeatherTracker.Repo,
-    # ssl: true,
+    ssl: true,
     url: database_url,
+    username: "postgres",
+    password: "76XzpbNP2TxDh6f",
+    # hostname: "scott-weather.flycast",
+    #port: 5432,
+    database: "weather_tracker",
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
     socket_options: maybe_ipv6
 
