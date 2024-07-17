@@ -20,8 +20,7 @@ if System.get_env("PHX_SERVER") do
   config :weather_tracker, WeatherTrackerWeb.Endpoint, server: true
 end
 
-#postgres://postgres:76XzpbNP2TxDh6f@scott-weather.flycast:5432
-#database_url = "postgres://postgres:df2zqXAIyJj4qP4@timedb-nerves-scottv2.flycast:5432/weather_tracker"
+
 
 if config_env() == :prod do
    database_url =
@@ -40,8 +39,7 @@ if config_env() == :prod do
     socket_options: maybe_ipv6,
     url: database_url
     #ssl: true
-    #username: "postgres",
-    #password: "df2zqXAIyJj4qP4",
+
     #hostname: "timedb-nerves-scottv2.internal",
     #port: 5432,
     #database: "weather_tracker",
