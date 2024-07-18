@@ -7,6 +7,8 @@
       )
       |> Finch.request(WeatherTrackerClient)
 
+## Proxy to FLY database for grafana
+fly proxy 15432:5432 -a timedb-nerves-scottv2
 
 ## Ssetting up timescale db on FLY
 
