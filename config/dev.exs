@@ -5,7 +5,9 @@ maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: [
 # Configure your database
 config :weather_tracker, WeatherTracker.Repo,
   database: "weather_dev",
-  url: System.get_env("DATABASE_URL"),
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   socket_options: maybe_ipv6
 
