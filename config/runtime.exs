@@ -30,7 +30,7 @@ if config_env() == :prod do
         For example: ecto://USER:PASS@HOST/DATABASE
         """
  # IO.puts "SCOTT DB URL"
- # IO.inspect database_url
+ # IO.inspect database_url hidr for esecurity
 
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
 
