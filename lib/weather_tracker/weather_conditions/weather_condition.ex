@@ -15,6 +15,14 @@ defmodule WeatherTracker.WeatherConditions.WeatherCondition do
      :serial_number
   ]
 
+  #@required_fields [
+   # :temperature_c,
+   # :tvoc_ppb,
+   # :co2_eq_ppm,
+   #  :hostname,
+   #  :serial_number
+  #]
+
   @derive {Jason.Encoder, only: @allowed_fields}
   @primary_key false
   schema "weather_conditions" do
@@ -41,7 +49,11 @@ defmodule WeatherTracker.WeatherConditions.WeatherCondition do
 
     weather_condition
     |> cast(attrs, @allowed_fields)
-    |> validate_required(@allowed_fields)
     |> put_change(:timestamp, timestamp)
+
+    # was
+    #|> cast(attrs, @allowed_fields)
+   # |> validate_required(@allowed_fields)
+   # |> put_change(:timestamp, timestamp)
   end
 end
