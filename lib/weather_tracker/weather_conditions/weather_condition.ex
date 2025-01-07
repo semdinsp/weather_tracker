@@ -51,6 +51,7 @@ defmodule WeatherTracker.WeatherConditions.WeatherCondition do
       NaiveDateTime.utc_now()
       |> NaiveDateTime.truncate(:second)
 
+    Logger.warning("create_changeset: timestamp: #{inspect(timestamp)}")
     result=weather_condition
     |> cast(attrs, @allowed_fields)
     |> validate_required(@allowed_fields)
