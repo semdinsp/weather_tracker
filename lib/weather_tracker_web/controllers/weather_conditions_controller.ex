@@ -17,13 +17,13 @@ defmodule WeatherTrackerWeb.WeatherConditionsController do
     case WeatherConditions.create_entry(params) do
       {:ok, weather_condition = %WeatherCondition{}} ->
         #Logger.debug("Successfully created a weather condition entry")
-        Logger.debug("success: inbound api call -  #{inspect(weather_condition )}")
+        Logger.warning("success: inbound api call -  #{inspect(weather_condition )}")
         conn
         |> put_status(:created)
         |> json(weather_condition)
 
       error ->
-        Logger.warning("Failed to create a weather entry: #{inspect(error)} params: #{inspect(params)}")
+        Logger.error("Failed to create a weather entry: #{inspect(error)} params: #{inspect(params)}")
         conn
         |> put_status(:unprocessable_entity)
         |> json(%{message: "Poorly formatted payload params #{inspect(params)}"})
