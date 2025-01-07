@@ -9,6 +9,10 @@ defmodule WeatherTrackerWeb.WeatherConditionsController do
   }
 
   def create(conn, params) do
+    params=if params["temperature_c"] == nil do
+      Logger.warning("Nulls to temperature.  need to fix this propertly")
+      Map.merge(params, %{altitude_m: 0, pressure_pa: 0, temperature_c: 0, humidity_rh: 0.5})
+    end
     case WeatherConditions.create_entry(params) do
       {:ok, weather_condition = %WeatherCondition{}} ->
         #Logger.debug("Successfully created a weather condition entry")
