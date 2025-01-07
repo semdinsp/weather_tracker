@@ -24,10 +24,10 @@ defmodule WeatherTrackerWeb.WeatherConditionsController do
         |> json(weather_condition)
 
       error ->
-        Logger.error("Failed to create a weather entry: #{inspect(error)} params: #{inspect(params)}")
+        Logger.error("Failed to create a weather entry: #{inspect(error)} params: #{inspect(nparams)}")
         conn
         |> put_status(:unprocessable_entity)
-        |> json(%{message: "Poorly formatted payload params #{inspect(params)}"})
+        |> json(%{message: "Poorly formatted payload params #{inspect(nparams)}"})
     end
   end
 end
