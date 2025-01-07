@@ -11,7 +11,7 @@ defmodule WeatherTrackerWeb.WeatherConditionsController do
   def create(conn, params) do
     params=if params["temperature_c"] == nil do
       Logger.warning("Nulls to temperature. check")
-      Map.merge(params, %{altitude_m: 0, pressure_pa: 0, temperature_c: 0, humidity_rh: 0.5})
+      Map.merge(params, %{altitude_m: 0.0, pressure_pa: 0.0, temperature_c: 0.0, humidity_rh: 0.5})
     end
     Logger.warning("params before create entry #{inspect(params)}")
     case WeatherConditions.create_entry(params) do
@@ -27,7 +27,7 @@ defmodule WeatherTrackerWeb.WeatherConditionsController do
 
         conn
         |> put_status(:unprocessable_entity)
-        |> json(%{message: "Poorly formatted payload"})
+        |> json(%{message: "Poorly formatted payload params #{inspect(params)}"})
     end
   end
 end
