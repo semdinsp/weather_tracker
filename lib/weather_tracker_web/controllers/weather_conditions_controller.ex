@@ -24,7 +24,6 @@ defmodule WeatherTrackerWeb.WeatherConditionsController do
 
       error ->
         Logger.warning("Failed to create a weather entry: #{inspect(error)} params: #{inspect(params)}")
-
         conn
         |> put_status(:unprocessable_entity)
         |> json(%{message: "Poorly formatted payload params #{inspect(params)}"})

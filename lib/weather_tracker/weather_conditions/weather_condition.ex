@@ -11,8 +11,8 @@ defmodule WeatherTracker.WeatherConditions.WeatherCondition do
    # :co2_eq_ppm,
     :light_lumens,
     :humidity_rh,
-     :hostname,
-     :serial_number
+    :hostname,
+    :serial_number
   ]
 
   #@required_fields [
@@ -35,7 +35,6 @@ defmodule WeatherTracker.WeatherConditions.WeatherCondition do
     field :voc_index, :decimal
     field :light_lumens, :decimal
     field :humidity_rh, :decimal
-
     # scott
     field :hostname, :string
     field :serial_number, :string
@@ -45,6 +44,7 @@ defmodule WeatherTracker.WeatherConditions.WeatherCondition do
   #request_id=GBhREGAmxoCtOnwAAAIh [warning] params before create entry %{:temperature_c => 0, :pressure_pa => 0, :humidity_rh => 0.5, :altitude_m => 0, "hostname" => "nerves-8c5a", "light_lumens" => 6.2208, "serial_number" => "8c5a", "voc_index" => 133}
 
   def create_changeset(weather_condition = %__MODULE__{}, attrs) do
+    Logger.warning("params before create changeset #{inspect(attrs)}")
     timestamp =
       NaiveDateTime.utc_now()
       |> NaiveDateTime.truncate(:second)
