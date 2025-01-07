@@ -9,10 +9,11 @@ defmodule WeatherTrackerWeb.WeatherConditionsController do
   }
 
   def create(conn, params) do
-    nparams=params
+    Logger.warning("controller.create: --> entry inbound api call -  #{inspect(params)}")
     nparams=if params["temperature_c"] == nil do
       Logger.warning("Nulls to temperature. check")
       Map.merge(params, %{"altitude_m" => 0.0, "pressure_pa" => 0.0, "temperature_c" => 0.0, "humidity_rh" => 0.5})
+    else params
     end
     Logger.warning("controller.create: params before create entry #{inspect(nparams)}")
     case WeatherConditions.create_entry(nparams) do
