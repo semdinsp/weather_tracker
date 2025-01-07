@@ -3,6 +3,8 @@ defmodule WeatherTracker.WeatherConditions do
     Repo,
     WeatherConditions.WeatherCondition
   }
+  require Logger
+
 
   def create_entry(attrs) do
     Logger.warning("params before create entry #{inspect(attrs)}")

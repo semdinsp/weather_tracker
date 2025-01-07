@@ -1,6 +1,8 @@
 defmodule WeatherTracker.WeatherConditions.WeatherCondition do
   use Ecto.Schema
   import Ecto.Changeset
+  require Logger
+
 
   @allowed_fields [
     :altitude_m,
