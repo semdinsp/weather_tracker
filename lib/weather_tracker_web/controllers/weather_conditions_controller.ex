@@ -15,7 +15,6 @@ defmodule WeatherTrackerWeb.WeatherConditionsController do
     nparams=if params["humidity_rh"] == "unknown" do
       Logger.warning("humidity unknown check")
      # Map.merge(params, %{"altitude_m" => 0.0, "pressure_pa" => 0.0, "temperature_c" => 0.0, "humidity_rh" => 0.5})
-
       Map.merge(params, %{ "humidity_rh" => 0.5})
     else params
     end

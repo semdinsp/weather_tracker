@@ -51,8 +51,8 @@ defmodule WeatherTracker.WeatherConditions.WeatherCondition do
       NaiveDateTime.utc_now()
       |> NaiveDateTime.truncate(:second)
 
-    Logger.warning("create_changeset: timestamp: #{inspect(timestamp)}")
-    Logger.warning("create_changeset: allowed: #{inspect(@allowed_fields)} attrs: #{inspect(attrs)}")
+    #Logger.warning("create_changeset: timestamp: #{inspect(timestamp)}")
+    #Logger.warning("create_changeset: allowed: #{inspect(@allowed_fields)} attrs: #{inspect(attrs)}")
 
     result=weather_condition
     |> cast(attrs, @allowed_fields)
@@ -61,10 +61,7 @@ defmodule WeatherTracker.WeatherConditions.WeatherCondition do
 
     Logger.warning("changeset: <--- exiting create changeset result: #{inspect(result)}")
     result
-    # was
-    #|> cast(attrs, @allowed_fields)
-   # |> validate_required(@allowed_fields)
-   # |> put_change(:timestamp, timestamp)
+
   end
 end
 
